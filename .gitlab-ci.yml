@@ -2,7 +2,7 @@ variables:
   PROJECT_NAME: "FFXIV Utilities"
   MSBUILD_PATH: "Microsoft Visual Studio\\2017\\BuildTools\\MSBuild\\15.0\\Bin\\msbuild.exe"
 before_script:
-  - @echo off
+  - "@echo off"
   - echo "starting build for %PROJECT_NAME%"
   - echo "Restoring NuGet Packages..."
   - C:\GitLab-Runner\nuget.exe restore "%PROJECT_NAME%.sln"
