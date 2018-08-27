@@ -2,12 +2,12 @@ variables:
   PROJECT_NAME: "FFXIV Utilities"
   MSBUILD_PATH: "Microsoft Visual Studio\\2017\\BuildTools\\MSBuild\\15.0\\Bin\\msbuild.exe"
 before_script:
+  - @echo off
   - echo "starting build for %PROJECT_NAME%"
   - echo "Restoring NuGet Packages..."
-  - nuget restore "%PROJECT_NAME%.sln"
+  - C:\GitLab-Runner\nuget.exe restore "%PROJECT_NAME%.sln"
 stages:
   - build
-  - test
 build:
   tags:
   - c-sharp
