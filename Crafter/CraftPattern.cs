@@ -1,8 +1,8 @@
-﻿namespace Crafter
-{
-    using System.Collections.Generic;
-    using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
+namespace Crafter
+{
     public class CraftPattern
     {
         public string Name { get; set; }
@@ -11,7 +11,10 @@
         {
             get
             {
-                return !string.IsNullOrWhiteSpace(this.Name) && this.Commands != null && this.Commands.All(c => c != null);
+                return
+                    !string.IsNullOrWhiteSpace(this.Name) &&
+                    (this.Commands != null) &&
+                    this.Commands.All(c => c != null);
             }
         }
     }

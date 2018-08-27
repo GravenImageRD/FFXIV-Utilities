@@ -1,26 +1,26 @@
-﻿namespace Crafter
-{
-    using Emgu.CV;
-    using Emgu.CV.CvEnum;
-    using Emgu.CV.Structure;
-    using System;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Diagnostics;
-    using System.Drawing;
-    using System.IO;
-    using System.Linq;
-    using System.Media;
-    using System.Runtime.InteropServices;
-    using System.Threading;
-    using System.Windows;
-    using System.Xml.Serialization;
-    using WindowsInput;
-    using WindowsInput.Native;
-    using CrafterInputSimulator = InputSimulator.InputSimulator;
-    using Point = System.Drawing.Point;
-    using Size = System.Drawing.Size;
+﻿using Emgu.CV;
+using Emgu.CV.CvEnum;
+using Emgu.CV.Structure;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Media;
+using System.Runtime.InteropServices;
+using System.Threading;
+using System.Windows;
+using System.Xml.Serialization;
+using WindowsInput;
+using WindowsInput.Native;
+using CrafterInputSimulator = InputSimulator.InputSimulator;
+using Point = System.Drawing.Point;
+using Size = System.Drawing.Size;
 
+namespace Crafter
+{
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
