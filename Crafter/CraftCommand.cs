@@ -1,8 +1,8 @@
-﻿namespace Crafter
-{
-    using System;
-    using WindowsInput.Native;
+﻿using System;
+using WindowsInput.Native;
 
+namespace Crafter
+{
     public class CraftCommand
     {
         public VirtualKeyCode Key { get; set; }
