@@ -33,7 +33,8 @@ namespace Crafter
         private Thread _craftThread;
         private CraftingViewModel _viewModel = new CraftingViewModel();
         private Image<Gray, byte> _synthButtonImage;
-        private string _patternsfilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "My Games", "FINAL FANTASY XIV - A Realm Reborn", "Patterns.xml");
+        private bool _useSynthButton = false;
+        private string _patternsfilePath = Path.Combine(Environment.CurrentDirectory, "Patterns.xml");// Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "My Games", "FINAL FANTASY XIV - A Realm Reborn", "Patterns.xml");
         private string _synthButtonfilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "My Games", "FINAL FANTASY XIV - A Realm Reborn", "SynthButton.png");
 
         #endregion Private Members
@@ -198,7 +199,7 @@ namespace Crafter
                 MessageBox.Show("Could not acquire a window handle to the FFXIV process. If FFXIV is running, try running Greedy Crafter as an Admin.");
                 return false;
             }
-
+                
             //if (SetForegroundWindow(this.FFWindowHandle) == 0)
             //{
             //    // Try to reacquire, and return if setting works.
@@ -217,7 +218,7 @@ namespace Crafter
         {
             if (this.AcquireFFWindow())
             {
-                CrafterInputSimulator.SendKeyPress(this.FFWindowHandle, key, modifier);
+                CrafterInputSimulator.SendKeyPress(this.FFWindowHandle, new CrafterInputSimulator.KeyData() { Code = key, Modifier = modifier });
                 Thread.Sleep(sleepTime);
             }
             else
@@ -245,7 +246,7 @@ namespace Crafter
                             Console.WriteLine();
 
                             // If we have a synthesis button image, try to find the button dynamically and click it.
-                            if (this._synthButtonImage != null)
+                            if (this._synthButtonImage != null && this._useSynthButton)
                             {
                                 var buttonRect = this.FindSynthesisButton();
                                 if (buttonRect.HasValue)

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -69,11 +68,6 @@ namespace InputSimulator
             public VirtualKeyCode? Modifier;
         }
 
-        public struct KeySequence
-        {
-            public List<VirtualKeyCode> Keys;
-        }
-        
         public static void SendKeyPress(IntPtr gameWindow, KeyData keyData)
         {
             using (var modifierKey = new ModifierKey(gameWindow, keyData.Modifier))
@@ -86,11 +80,9 @@ namespace InputSimulator
         {
             foreach (var keyData in keys)
             {
-                Debug.Write(keyData.Code.ToString());
                 SendKeyPress(gameWindow, keyData);
-                Thread.Sleep(500);
+                Thread.Sleep(100);
             }
-            Debug.WriteLine("");
         }
     }
 }
